@@ -1,0 +1,21 @@
+<navbar></navbar>
+<div ng-controller="testResultCtrl as main" ng-init="main.getSingleTestAnswer()">
+<blockquote >
+    <span style="border-left:3px solid #42bcea;padding-left:10px;">User Performance in current test </span>
+    <span style="float: right;margin-right: 15px;"><a href="#/admin-dashboard/all-users/{{main.userId}}/performance" class="btn btn-danger">All Users</a><span></h3>
+
+     </blockquote>
+
+<div class="container" style="margin-top:20px;">
+           <div style="margin:0 auto;width:60%;">
+           <div class="panel paanel-default">
+               <div class="panel-body">
+
+    <p>Total correct Answer : <b>{{main.totalCorrect}}</b></p>
+    <p>Total wrong Answer: <b>{{main.totalWrong}}</b></p>
+    <p>Total score : <b>{{main.totalpercent | number:2}} %</b></p>
+               </div></div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<navbar></navbar>
+<div class="container-fluid full-bg-inner">
+<div class="login-container">
+<h1 class="text-center" style="margin-bottom: 25px;">Login</h1>
+<div class="col-md-7" ng-controller="LoginCtrl as main">
+          <form method="post" ng-submit="login()" name="loginForm">
+          <div class="form-group has-feedback">
+            <input class="form-control " type="text" name="email" ng-model="user.email" placeholder="Email" required autofocus>
+            <span class="ion-at form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input class="form-control " type="password" name="password" ng-model="user.password" placeholder="Password" required>
+            <span class="ion-key form-control-feedback"></span>
+          </div>
+          <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-block btn-success" style="width: 100px;">Log in</button>
+          <br/>
+        <div class="form-group">
+          <a href="/#/forgot"><strong>Forgot your password?</strong></a></div>
+
+          
+          <p class=" text-muted">
+            <small>Don't have an account yet? <a href="/#/signup">Sign up</a></small>
+          </p>
+        </form>
+
+<div class="formSeprator">
+<div class="sepratorText">OR</div>
+</div>
+</div>
+<div class="col-md-5">
+
+
+       <p> <button style="background: #4267B2;color: #fff;" class="btn btn-block btn-facebook " ng-click="authenticate('facebook')">
+          <i class="ion-social-facebook"></i> Sign in with Facebook
+        </button></p>
+<p class="text-center">OR</p>
+       <p> <button style="background: #e0422f;color: #fff;" class="btn btn-block btn-google-plus" ng-click="authenticate('google')">
+          <span class="ion-social-googleplus"></span> Sign in with Google
+        </button></p>
+</div>
+</div>
+</div>
+

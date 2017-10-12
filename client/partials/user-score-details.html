@@ -1,0 +1,33 @@
+<navbar></navbar>
+<blockquote ><span style="border-left:3px solid #42bcea;padding-left:10px;"> Test Details </span>
+    <a href="#/dashboard" class="btn btn-danger" style="float: right;margin-top:-5px;">Dashboard</a>
+     </blockquote>
+
+<div class="container" style="margin-top:20px;" ng-controller="userDetailsCtrl as main" ng-init="main.getAllUserTest()">
+    <div class="row">
+        <!--{{main}}-->
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 user-score-details" ng-repeat="test in main.userTestQuestions" >
+         <div ng-repeat="data in test.question">
+             <h5><b>Question : {{data.question}}</b></h5>
+             <hr/>
+             <div class="opt">
+             <p>Option A : <b>{{data.optionA}}</b></p>
+             <p>Option B : <b>{{data.optionB}}</b></p>
+             <p>Option C : <b>{{data.optionC}}</b></p>
+             <p>Option D : <b>{{data.optionD}}</b></p>
+             </div>
+             </div>
+              <hr/>
+
+          <!--<p >Question : {{test}}</p>-->
+          <p>Your Answer : <b>{{test.userAnswer}}</b></p>
+          <p>Correct Answer : <b>{{test.correctAnswer}}</b></p>
+          <p>Time Taken : <b>{{test.timeTakenEach}} Seconds</b></p>
+
+        </div>
+        </div>
+
+        </div>
+
+       

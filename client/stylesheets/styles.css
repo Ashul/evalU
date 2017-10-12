@@ -1,0 +1,239 @@
+html,body{height:100%;margin:0px;}
+*{
+    margin:0;padding:0;
+}
+body{
+   
+    font-family: 'Open Sans', sans-serif !important;
+    color: #666;
+    background: #F9FAFC;
+
+
+    }
+h1,h2{
+font-family: 'Ubuntu', sans-serif;
+}
+h3,h4{
+font-family: 'Ubuntu', sans-serif;}
+h3{
+    font-size:18px;
+    padding: 10px;
+}
+blockquote{
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px 2px #e2dddd;
+    margin-top:50px;
+    border: 0;
+}
+.full{height: 100%;}
+.navbar{
+    margin-bottom: 0;
+    border-radius: 0;
+    border: 0;
+    color: #efefef;
+    /*background: #333;*/
+    
+    }
+.navbar li span{display: block;margin-top:15px;}
+.navbar-brand{font-weight: bold;font-size:30px;font-family: 'Ubuntu', sans-serif;}
+.full-bg{
+    background: url("../img/apple.jpg") no-repeat #fff ;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+.full-bg-inner{
+background: #F0F3F5;
+height: 100%;
+width: 100%;
+overflow: hidden;
+
+}
+.fade-l{
+    background:rgba(0,0,0,0.8);
+    width:100%;
+    height:100%;
+    float: left;
+
+}
+.intro-text{
+    color: #fff;
+    width: 67%;
+    text-align: center;
+    margin: 100px auto;
+}
+.main-head{
+    font-size:85px;
+    color: #05bcea;
+    line-height: 150px;
+    font-weight: bold;
+    text-shadow: 5px 7px 2px #121212;
+}
+.intro-text h2{
+    font-size:50px;
+    font-weight: bold;
+
+
+}
+
+.intro-text p{
+    font-size:20px;
+}
+.button{text-align: center;margin: 150px 0 0 0;}
+.btn-xl {
+    padding: 20px 40px;
+    border-color: #1ee2e7;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #1ee2e7;
+    margin-right: 15px;
+}
+.btn-xl:hover{
+    background-color: #05bcea;
+        color: #fff;
+
+}
+.twitterbtn {
+    padding: 20px 40px;
+    border-color: #00FF7F;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #00FF7F;
+    margin-right: 15px;
+
+}
+.twitterbtn:hover{background-color: #33dc57;    color: #fff;
+}
+
+
+
+/*=========================login===============*/
+
+.login-container{
+    width:60%;
+    background: #fff;
+    padding: 30px;
+    min-height: 50%;
+    margin: 80px auto;
+}
+.signup-container{
+    width:60%;
+    background: #fff;
+    padding: 30px;
+    min-height: 70%;
+    margin: 80px auto;
+}
+
+.login-container form{
+    width:90%;
+    float: left;
+}
+ 
+.formSeprator{
+    border-right: 1px solid #999;
+    float: left;
+    height: 200px;
+    margin: 0px 0 35px 30px;
+    position: relative; 
+    width: 1px;
+    } 
+.sepratorText{
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 50px;
+    color: #666;
+    left: -15px;
+    top:80px;
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    padding: 5px;
+}
+/*===========================Sidebar===================================*/
+.panel-default > .panel-heading{
+    background: #fcfcfc;
+    border-color:#e1e8ed;
+    color: #666;
+}
+.my-padding-lft{padding-left: 0;}
+.my-padding-rgt{padding-right: 0;}
+.start-test ul {list-style: none; margin-left:10px;}
+.start-test ul li{line-height: 35px;border-bottom: 1px solid #ecebeb}
+.test-container{
+    width:80%;
+    background: #fff;
+    padding: 30px;
+    min-height: 50%;
+    margin: 0px auto;
+}
+.Q-container{
+    width:90%;
+    margin: 0px auto;
+}
+
+.test-container2{
+float: left;
+width: 100%;
+background: #fff;
+padding: 30px 15px;
+
+}
+.test-f{width:47%;float: left;margin:5px 10px}
+.test-o{width:96.5%;float: left;margin:5px 10px}
+.test-list ul{list-style: none}
+.test-list ul li {
+    padding: 10px;
+    background:#fff;
+    margin:1% 2%;
+    border-left:4px solid #e8eaea;
+    width: 46%;
+    float: left;
+}
+.test-list ul li a{
+    color: #42bcea; 
+    font-size:12px;
+    text-decoration:none
+}
+.test-list ul li a:hover{
+    color: #333; 
+}
+
+
+.user >.panel{
+border-radius:0;
+border:0;
+}
+.user >.panel>.panel-heading{
+background: #fff;
+font-weight:bold;
+border-radius:0;
+padding: 20px 15px;
+border-top:4px solid #e8eaea;
+}
+.start-test ul li span{
+    width:100%;float: left;
+}
+.user-score-details{
+    background: #fff;
+    border-left:4px solid #e8eaea;
+    margin-bottom: 20px;
+    padding: 25px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05)
+}
+.opt{width:100%;float: left;border-bottom: 1px solid #efefef;margin-bottom: 10px;}
+.opt p{
+    width:100%;float: left;
+}
+.s-label label{
+    width:50%
+}

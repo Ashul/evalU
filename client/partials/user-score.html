@@ -1,0 +1,27 @@
+<navbar></navbar>
+<blockquote ><span style="border-left:3px solid #42bcea;padding-left:10px;"> Score Details </span>
+    <a href="#/dashboard" class="btn btn-danger" style="float: right;margin-top:-5px;">Dashboard</a>
+     </blockquote>
+
+<div class="container-fluid" style="margin-top:20px;" ng-controller="userScoreCtrl as main">
+  <div class="row">
+       <div class="test-container">
+				     <div class="testDetails s-label " ng-init="main.viewSingleTest()" >
+			<div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-file-text" aria-hidden="true"></i>  Test {{main.test.testName}} Score</div>
+            <div class="panel-body start-test">
+
+							 <ul>
+				     <li><label>Test Name :</label>  {{main.test.testName}}</li>
+				     <li><label>Test Category :</label> {{main.test.testCategory}}</li>
+				     <li><label>Total Number of Questions :</label> {{main.test.totalQuestions}}</li>
+				     <li><label>Test Duration :</label>  {{main.test.timeLimit}}</li>
+				     <li><label>Test Total Score :</label>  {{main.test.totalScore}}</li>
+				     <li><label>No. Of Correct Answer(s) :</label>  {{main.totalCorrect}}</li>
+				     <li><label>No. Of Wrong Answer(s) :</label>  {{main.totalWrong}}</li>
+				     <li><label>% Marks :</label>  {{main.totalpercent | number: 2}}%</li>
+							 </ul>
+						 </div>
+			 </div>
+			        <!--===========================-->
+  </div>

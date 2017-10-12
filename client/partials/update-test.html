@@ -1,0 +1,43 @@
+<navbar></navbar>
+<blockquote >
+    <span style="border-left:3px solid #42bcea;padding-left:10px;">Update Test </span>
+    <span style="float: right;margin-right: 15px;"><a href="#/admin-dashboard" class="btn btn-danger">Dashboard</a><span></h3>
+
+     </blockquote>
+
+<div class="container" style="margin-top:20px;">
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " ng-controller="createtestCtrl as main">
+          <div class="test-container">
+            <form ng-submit="main.updateTest()" >
+                <div class="form-group test-f">
+                <label for="testName">Test Name :</label>
+                <input type="text" ng-model="main.testName" class="form-control" id="testName">
+            </div>
+            <div class="form-group test-f">
+                <label for="testCategory">Test Category :</label>
+                <input type="text" ng-model="main.testCategory" class="form-control" id="testCategory">
+            </div>
+
+            <div class="form-group test-f">
+                <label for="totalScore">Set Total Score :</label>
+                <input type="number" ng-model="main.totalScore" class="form-control" id="totalScore" >
+            </div>
+
+            <div class="form-group test-f">
+                <label for="totalQuestions">Set Total No Of Questions :</label>
+                <input type="number" ng-model="main.totalQuestions" class="form-control" id="totalQuestions" >
+            </div>
+
+                <div class="form-group test-o">
+                <label for="timeLimit">TIme Limit:</label>
+                <input type="number" ng-model="main.timeLimit" class="form-control" id="timeLimit" >
+            </div>
+
+            <input type="submit" class="btn btn-info" value="Update Test">
+            </form>
+
+    </div>
+    </div>
+    </div>
+</div>

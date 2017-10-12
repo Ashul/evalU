@@ -1,0 +1,16 @@
+<navbar></navbar>
+<blockquote ><span style="border-left:3px solid #42bcea;padding-left:10px;"> All Registered Users </span>
+    <a href="#/admin-dashboard" class="btn btn-danger" style="float: right;margin-top:-5px;">Dashboard</a>
+     </blockquote>
+
+<div class="container" style="margin-top:20px;" ng-controller="allUsersCtrl as main" ng-init="main.allUser()">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-repeat="data in main.alluser">
+           <div class="panel paanel-default">
+               <div class="panel-body">
+            <p>User Name : {{data.displayName}}</p>
+            <p>Email : {{data.email}}</p>
+            <p><a  ng-click="main.getalltestuser(data._id)" class="btn btn-info">user Performance</a></p>
+           </div></div>
+        </div>
+    </div></div>

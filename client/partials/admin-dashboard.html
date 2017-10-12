@@ -1,0 +1,33 @@
+<navbar></navbar>
+<blockquote >
+    <span style="border-left:3px solid #42bcea;padding-left:10px;">Dashboard </span>
+    <a href="#/admin-dashboard/all-users" class="btn btn-primary pull-right">view all registered user</a><span>
+    <span style="float: right;margin-right: 15px;"><a href="#/create-test" class="btn btn-danger">Create Test</a><span></h3>
+
+     </blockquote>
+
+<div class="container" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " ng-controller="adminDashboardCtrl as main" ng-init="main.loadAllTest()">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 user" ng-repeat="data in main.tests">
+            <div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-file-text" aria-hidden="true"></i> {{data.testName}}</div>
+            <div class="panel-body start-test">
+                <ul>
+                    <li>{{data.totalQuestions}} Questions</li>
+                    <li>{{data.totalScore}} Marks</li>
+                    <li>{{data.timeLimit}} Minutes</li>
+                </ul>
+                <a style="font-size:12px;" href="#/create-question/{{data._id}}">
+                <i class="fa fa-eye" aria-hidden="true"></i>  View Test</a>
+                <a href="#/create-test/{{data._id}}/update" style="float: right; color: #d43f3a;font-size:12px"  >
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>  Edit</a>
+
+            </div>
+        </div>
+
+                    </div>
+            </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<navbar></navbar>
+<blockquote >
+    <span style="border-left:3px solid #42bcea;padding-left:10px;">User Performance </span>
+    <span style="float: right;margin-right: 15px;"><a href="#/admin-dashboard/all-users" class="btn btn-danger">All Users</a><span></h3>
+
+     </blockquote>
+
+<div class="container" style="margin-top:20px;" ng-controller="performanceCtrl as main" ng-init="main.getalltestuser()">
+<!--{{main}}-->
+
+<div ng-repeat="test in main.usertest">
+            <div class="panel paanel-default">
+               <div class="panel-body">
+   
+    <p>Test Name : <a href="#/performance/{{main.userId}}/{{test._id}}/test-result">{{test.testName}}</a></p>
+               </div></div>
+</div>
+</div>

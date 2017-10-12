@@ -1,0 +1,57 @@
+<navbar></navbar>
+<blockquote ><span style="border-left:3px solid #42bcea;padding-left:10px;"> List Of All Tests </span>
+    <a href="#/dashboard" class="btn btn-danger" style="float: right;margin-top:-5px;">Dashboard</a>
+     </blockquote>
+
+<div class="container" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " ng-controller="alltestCtrl as main" ng-init="main.loadAllTest()">
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 user" ng-repeat="data in main.tests">
+            <div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-file-text" aria-hidden="true"></i> {{data.testName}}</div>
+            <div class="panel-body start-test">
+                <ul>
+                    <li>{{data.totalQuestions}} Questions</li>
+                    <li>{{data.totalScore}} Marks</li>
+                    <li>{{data.timeLimit}} Minutes</li>
+                </ul>
+<button type="button" class="btn btn-info" ng-click = "main.checkUser(data._id)"
+data-toggle="modal" data-target="#myModal{{$index+1}}">Start Test</button>
+<!-- Modal -->
+<div id="myModal{{$index+1}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"  >&times;</button>
+        <h4 class="modal-title">
+          Before You Attempt {{data.testName}} Test, Please Read The Following Instructions
+        </h4>
+        <p style="color: #42bcea"><b>If you have already taken the test, you can view the results.</b></p>
+
+      </div>
+      <div class="modal-body">
+          	<ul class="text-left text-capitalize" >
+            <li>Once You click Lets Start The Test! Button, There's no turning back you have to attempt test, Otherwise You will be awarded zero Marks</li>
+            <li>As Soon As Test Start's A Timer will Start, Make sure you complete it within the given time.</li>
+            <li>You can't Reattempt an already answred question, So Be Careful.</li>
+            <li>If you wish to continue, Please Press Let's Start The Test Button!!</li>
+
+      </div>
+      <div class="modal-footer">
+      <a href="#/start-test/{{data._id}}" target="_blank" class="btn btn-info" ng-disabled="main.ifAttempted">Lets Start The Test!</a>
+      <a href="#/start-test/{{data._id}}/user-score" target="_blank" class="btn btn-success " ng-disabled="main.notAttempted">View Results</a>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+            </div>
+        </div>
+
+                    </div>
+            </div>
+    </div>
+</div>
+</div>
