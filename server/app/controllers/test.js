@@ -56,6 +56,35 @@ testRouter.param("aID", function(req, res, next, id) {
             }
         });
     });
+//==========================================
+// API to get all questions ====================
+//==========================================
+
+    testRouter.get('/all/q', function(req, res){
+        question.find({}, function(err, tests){
+            if(err){
+                var error = resGenerator.generate(true, "Something is not working, error : " + err, 500, null);
+                res.send(error)
+            }else{
+               res.send(tests)
+            }
+        });
+    });
+
+//==========================================
+// API to get all Answers ====================
+//==========================================
+
+    testRouter.get('/all/a', function(req, res){
+        answer.find({}, function(err, tests){
+            if(err){
+                var error = resGenerator.generate(true, "Something is not working, error : " + err, 500, null);
+                res.send(error)
+            }else{
+               res.send(tests)
+            }
+        });
+    });
 
 
 //===========================================

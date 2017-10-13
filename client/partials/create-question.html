@@ -12,10 +12,10 @@
     <div class="Q-container">
      <div class="col-md-8" >
          
-        <div ng-repeat="maindata in main.tests.questions " class="user">
+        <div ng-repeat="maindata in main.tests.questions track by $index" class="user">
             <div class="panel panel-default">
-            <div class="panel-heading"><i class="fa fa-file-text" aria-hidden="true"></i> 
-            Q : {{maindata.question}}
+            <div class="panel-heading">
+            Q {{$index+1}} : {{maindata.question}}
             </div>
             <div class="panel-body start-test">
             <ul>

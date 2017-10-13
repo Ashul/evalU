@@ -17,11 +17,13 @@ angular.module('MyApp')
 
       //=========== get single test user's question    
       testService.getsingleTestUserQuestion(main.testId, main.userId)
-      .then( function(response){
-          main.userTestQuestions = response.data})
+      .then( function(res){
+                  console.log(res.data)
+
+          main.userTestQuestions = res.data})
         })
-        .catch(function(response) {
-          toastr.error(response.data.message, response.status);
+        .catch(function(res) {
+          toastr.error(res.data.message, response.status);
         });
     };              
   }]);

@@ -7,8 +7,10 @@
     <div class="row">
         <!--{{main}}-->
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 user-score-details" ng-repeat="test in main.userTestQuestions" >
-         <div ng-repeat="data in test.question">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 user-score-details" ng-repeat="test in main.userTestQuestions track by $index" >
+         
+         <span style="float: left;margin:8px 5px 0 5px; font-weight: bold;">{{$index +1}}</span>
+         <div ng-repeat="data in test.question ">
              <h5><b>Question : {{data.question}}</b></h5>
              <hr/>
              <div class="opt">

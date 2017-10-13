@@ -25,6 +25,7 @@ angular.module('MyApp')
             main.totalWrong = 0;
             main.timeTakenTotal = 0;
             main.totalpercent = 0;
+            main.timeTakenTotalX = 0;
 
           main.answers = response.data;
 
@@ -45,7 +46,7 @@ angular.module('MyApp')
         function timeTakenCalculate(answer, index) {
           main.timeTakenTotalX =  main.timeTakenTotalX+answer.timeTakenEach;
           main.timeTakenTotal = Math.floor(  main.timeTakenTotalX / 60) + ":" + (  main.timeTakenTotalX % 60 ?   main.timeTakenTotalX % 60 : '00');
-
+// console.log(main.timeTakenTotal)
       };
 
       //================= get total percent ===============

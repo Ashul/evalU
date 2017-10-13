@@ -1,5 +1,7 @@
 
-<div class="container-fluid full-bg">
+<div class="container-fluid full-bg" ng-controller="HomeCtrl as main" ng-init="main.user()">
+<div ng-if="main.userName.displayName"><navbar></navbar></div>
+
     <div class="fade-l">
         <div class="intro-text">
             <h1 class="main-head">eval<span style="color: #42ea66">U</span></h1>

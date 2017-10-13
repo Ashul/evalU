@@ -1,27 +1,10 @@
 angular.module('MyApp')
-  .controller('startTestCtrl',['$http','$routeParams','$location','$auth', 'toastr', 'Account','testService','$interval','$timeout', function($http,$routeParams,$location, $auth, toastr, Account,testService,$interval,$timeout) {
+  .controller('startTestCtrl',['$scope','$http','$routeParams','$location','$auth', 'toastr', 'Account','testService','$interval','$timeout', function($scope,$http,$routeParams,$location, $auth, toastr, Account,testService,$interval,$timeout) {
 //==================================================
 // set the context =================================
 //==================================================
     var main = this;
-//==================================================
-// prevent system refresh ==========================
-//==================================================
 
-  document.onkeydown = function(){
-  switch (event.keyCode){
-        case 116 : //F5 button
-            event.returnValue = false;
-            event.keyCode = 0;
-            return false;
-        case 82 : //R button
-            if (event.ctrlKey){ 
-                event.returnValue = false;
-                event.keyCode = 0;
-                return false;
-            }
-    }
-}
 
 //=========================== system refresh end =====================
 
@@ -45,8 +28,21 @@ angular.module('MyApp')
               if(main.counter !== 0){
                 main.counter--;
                 mytimeout = $timeout(main.onTimeout,1000);}
+            
+            else if(main.counter == 0){
+                 toastr.success('Oops! Time out occured. Your answers have been submitted successfully');
+                 $location.path('/start-test/'+main.testId+'/user-score');
             }
+          }
             var mytimeout = $timeout(main.onTimeout,1000);
+					$scope.$on(
+						"$destroy",
+						function( event ) {
+							$timeout.cancel( mytimeout );
+						}
+					);
+
+
             //===========counter ends =============
           
           //========== get time taken per question =======
@@ -70,14 +66,28 @@ angular.module('MyApp')
 
          //============= get all question one by one ========
             main.qLength = response.data.questions.length;
-            main.eachQuestion = response.data.questions[0]
-             var i = 1;
+            main.eachQuestion = response.data.questions[0];
+            main.qindex =1;
+            // console.log(main.eachQuestion)
+            // console.log(main.qindex  )
+            // console.log(main.qLength)
+             var i =1;
              main.next = function(){
-               if(i <  main.qLength){
-             main.eachQuestion = response.data.questions[i++]
-            }else{
-                 toastr.success('You have successfully completed the test!');
-                 $location.path('/start-test/'+main.testId+'/user-score');}
+               if(i >  main.qLength-1){
+                toastr.success('You have successfully completed the test!');
+                 $location.path('/start-test/'+main.testId+'/user-score');
+                        }
+            else{
+               $timeout(function() {
+             main.eachQuestion = response.data.questions[i]
+             console.log(main.eachQuestion)
+             main.qindex = ++i
+                         console.log(main.qindex  )
+
+              }, 100); // 0.1 seconds
+
+            }
+                 
              }
         })
         .catch(function(response) {
@@ -98,8 +108,7 @@ angular.module('MyApp')
 //==================================================
       Account.getProfile()
         .then(function(response) {
-          main.user = response.data;      
-
+      main.user = response.data;      
       main.questionId = questionId
       main.option = option;
       main.data = {
@@ -109,9 +118,12 @@ angular.module('MyApp')
         userAnswer:option,
         correctAnswer:answer,
         timeTakenEach: main.qTime,}
+        // console.log(main.data)
       //=========== send answer ============ 
       testService.sendAnswer(main.testId, main.questionId, main.data)
-        .then(function(response) {})
+        .then(function(response) {
+          console.log(response)
+        })
         .catch(function(response) {
           main.messages = {
             error: Array.isArray(response.data) ? response.data : [response.data]
@@ -124,7 +136,7 @@ angular.module('MyApp')
         .catch(function(response) {
           toastr.error(response.data.message, response.status);
         });
-          
+    }
 
 //==================================================
 // update test =====================================
@@ -136,34 +148,50 @@ angular.module('MyApp')
       Account.getProfile()
         .then(function(response) {
           main.user = response.data;      
-console.log(main.user)
       main.userId = main.user._id;
       main.email = main.user.email;
       main.testId = $routeParams.testId;
-      main.data={userId:main.userId}
-      var data = {
-        testAttemptedBy: main.userId
-      }
-      if (main.email) {
-          testService.testAttemptedBySend(main.testId, data)
-         .then(function(response) { })
+      // main.data={userId:main.userId}
+      testService.getsingleTest(main.testId)
+      .then(function sucess(res){
+           main.testAttempt = res.data
+                    // console.log(main.testAttempt.testAttemptedBy)
+
+           angular.forEach(main.testAttempt.testAttemptedBy, function(data){
+             main.testatt = data
+           })
+            console.log(main.testatt)
+          //  for(var i=0; i<main.testatt.testAttemptedBy.length; i++){
+          //    main.att = main.testatt.testAttemptedBy[i]
+          //  }
+        // console.log(main.testatt.testAttemptedBy)
+        console.log(main.userId)
+        //  
+      if (main.email && (main.testatt !== main.userId) ) {
+            var mydata = {
+            testAttemptedBy: main.userId
+            }
+          testService.testAttemptedBySend(main.testId, mydata)
+         .then(function(response) {
+          //  console.log(response.data)
+          })
          .catch(function(response) {
           alert('error, check console for more info!')
           });
           } else {
             alert("You're Not Authorized To View This Page")
             $location.path( "/dashboard" );
-          }})
+          }})})
   
         .catch(function(response) {
           toastr.error(response.data.message, response.status);
         });
     };       
 
-main.updateTest();
+ main.updateTest();
 
 //update test end
-    }
+    
 //================= invoke the function ================
 
   }]).filter('secondsToDateTime', [function() {
