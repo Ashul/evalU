@@ -9,9 +9,6 @@ angular.module('MyApp')
       },
       forgotPassword: function(data) {
         return $http.post('/forgot', data);
-      },
-      resetPassword: function(data) {
-        return $http.post('/reset', data);
       }
 
     };
