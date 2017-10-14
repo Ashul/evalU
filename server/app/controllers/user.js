@@ -271,7 +271,7 @@ app.post('/forgot', function(req, res, next) {
 /**
  * POST /reset
  */
-app.post('/reset', function(req, res) {
+app.post('/reset/:token', function(req, res) {
 
   async.waterfall([
     function(done) {
